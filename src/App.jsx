@@ -12,7 +12,7 @@ import AdminVeterinarios from './pages/AdminVeterinarios';
 import VeterinarioCitas from './pages/VeterinarioCitas';
 import Dashboard from './pages/Dashboard';
 import Layout from "./pages/Layout";
-import Index from "./pages/index";
+import Index from "./pages/Index";
 
 function App() {
   return (
