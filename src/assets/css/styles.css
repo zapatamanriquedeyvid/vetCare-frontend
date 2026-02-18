@@ -1,0 +1,62 @@
+/* src/assets/css/styles.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eef2f7; /* color de fondo suave */
+}
+
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa; /* gris claro */
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.encabezado-tabla {
+  background-color: #0d6efd; /* azul Bootstrap */
+  color: white;
+  
+}
+.tablas{
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-link {
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: larger;
+  margin-bottom: 5px;
+  font-weight: bold;
+
+}
+
+.nav-link:hover {
+  background-color: #d8dadd88; /* gris oscuro */
+  color: #f8f9fa; /* blanco más claro */
+}
+
+.active-link {
+  background-color: #0d6efd; /* azul Bootstrap */
+  color: white !important;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.active-link:hover {
+  background-color: #0d6efd; /* azul Bootstrap */
+  color: white !important;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
