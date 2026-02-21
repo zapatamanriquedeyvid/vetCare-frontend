@@ -219,8 +219,6 @@ function EditModalForm({ show, onClose, row, columns, endpoint }) {
       }
 
       onClose();
-      console.log("Endpoint:", endpoint);
-      console.log("Payload enviado:", payload);
 
     } catch (err) {
       if (err.name === "ValidationError") {
@@ -238,11 +236,6 @@ function EditModalForm({ show, onClose, row, columns, endpoint }) {
     }
   };
 
-  const verDatosInternos = () => {
-    console.log("Endpoint actual:", endpoint);
-    console.log("Datos internos del formData:", formData);
-    console.log("Datos internos del row:", row);
-  };
 
   const renderInput = (col,formData,handleChange,row,mascotas,clientes,veterinarios,endpoint,) => {
     const value = formData[col.accessor] || "";
@@ -336,12 +329,6 @@ function EditModalForm({ show, onClose, row, columns, endpoint }) {
                   className="btn btn-primary"
                   disabled={loading}>
                   {loading ? "Guardando..." : "Guardar cambios"}
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-info"
-                  onClick={verDatosInternos}>
-                  Ver Datos Internos
                 </button>
               </div>
             </form>
