@@ -37,7 +37,7 @@ function AdminMascotas() {
   ];
 
   return (
-    <div className="container mt-4 tablas">
+    <div className="w-100 mt-4 tablas">
       <h2>Lista de Mascotas</h2>
       <br/>
       <DataTable columns={columns} data={mascotas} endpoint="/admin/mascotas" onRefresh={fetchMascotas} />

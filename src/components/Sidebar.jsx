@@ -40,8 +40,8 @@ function Sidebar() {
   };  
 
   return (
-    <div className="bg-white text-black d-flex flex-column justify-content-between align-items-center  vh-100 p-3" style={{ width: "350px"}}>
-      <div style={{width:250}}>
+    <div className="bg-white text-black d-flex flex-column justify-content-between align-items-center vh-100 p-3"  style={{ width: "350px", minHeight: "100vh" }}>
+      <div style={{width:"250px" }}>
         <img src={logo} alt="Logo VetCare" className="img-fluid mb-3" />
         <ul className="nav flex-column">
           {items.map((item, index) => (

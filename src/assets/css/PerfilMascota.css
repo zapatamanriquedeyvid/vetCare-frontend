@@ -1,0 +1,217 @@
+/* Contenedor Principal */
+.container-mascotas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  height: 94vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.container-mascotas::-webkit-scrollbar {
+  margin: 5px;
+} 
+.container-mascotas::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.container-mascotas::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.container-mascotas::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.perfil-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-entry {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+
+/* Botón Regresar */
+.btn-regresar {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.btn-regresar:hover {
+  color: #000;
+}
+
+/* Header Mascota */
+.header-mascota {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.avatar-mascota {
+  width: 80px;
+  height: 80px;
+  background-color: #eef7f2;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  font-size: 40px;
+}
+
+.nombre-mascota {
+  margin: 0;
+  font-size: 28px;
+  color: #1a3a3a;
+  font-weight: 600;
+}
+
+.subtitulo-mascota {
+  margin: 4px 0 0;
+  color: #7a8c8c;
+  font-size: 16px;
+}
+
+/* Grid de Información Superior */
+.grid-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 16px; 
+  margin-bottom: 25px;
+}
+
+.info-item {
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.info-icon {
+  color: #4caf50;
+  font-size: 18px;
+}
+
+.info-label {
+  font-size: 11px;
+  color: #99a7a7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Sección de Citas */
+.titulo-seccion {
+  width: 100%;
+  text-align: center;
+  max-width: 900px;
+  margin: 20px 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.grid-citas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.cita-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cita-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cita-pet-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2d5a5a;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.cita-motivo {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.cita-detalle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #667a7a;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Badges de Estado */
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-pendiente {
+  background-color: #fff4e5;
+  color: #f5a623;
+  border: 1px solid #ffe8cc;
+}
+
+.badge-atendida {
+  background-color: #e8f5e9;
+  color: #4caf50;
+  border: 1px solid #c8e6c9;
+}

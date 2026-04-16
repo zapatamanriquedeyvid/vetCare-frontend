@@ -1,6 +1,6 @@
 const InputFecha = ({ value, onChange, accessor, min, max }) => (
   <>
-    <label className="form-label">Fecha</label>
+    <label className="form-label">{accessor}</label>
     <input
       type="date"
       className="form-control"

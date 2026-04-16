@@ -37,7 +37,7 @@ function AdminVeterinarios() {
   ];
 
   return (
-    <div className="container mt-4 tablas">
+    <div className="w-100 mt-4 tablas">
       <h2>Lista de Veterinarios</h2>
       <br/>
       <DataTable columns={columns} data={veterinarios} endpoint="/admin/veterinarios" onRefresh={fetchVeterinarios} />

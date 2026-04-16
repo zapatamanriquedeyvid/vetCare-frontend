@@ -13,6 +13,7 @@ import VeterinarioCitas from './pages/VeterinarioCitas';
 import Dashboard from './pages/Dashboard';
 import Layout from "./pages/Layout";
 import Index from "./pages/Index";
+import PerfilMascota from "./components/PerfilMascota";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/api/cliente" element={<Layout />}>
             <Route path="perfil" element={<Perfil />} />
             <Route path="mascotas" element={<PrivateRoute allowedRoles={["CLIENTE"]}><ClienteMascotas /></PrivateRoute>} />
+            <Route path="mascota/:idMascota" element={<PerfilMascota />} />
             <Route path="citas" element={<PrivateRoute allowedRoles={["CLIENTE"]}><ClienteCitas /></PrivateRoute>} />
           </Route>
 
@@ -36,6 +38,7 @@ function App() {
             <Route path="dashboard" element={<PrivateRoute allowedRoles={["ADMIN"]}><Dashboard /></PrivateRoute>} />
             <Route path="clientes" element={<PrivateRoute allowedRoles={["ADMIN"]}><AdminClientes /></PrivateRoute>} />
             <Route path="mascotas" element={<PrivateRoute allowedRoles={["ADMIN"]}><AdminMascotas /></PrivateRoute>} />
+
             <Route path="citas" element={<PrivateRoute allowedRoles={["ADMIN"]}><AdminCitas /></PrivateRoute>} />
             <Route path="veterinarios" element={<PrivateRoute allowedRoles={["ADMIN"]}><AdminVeterinarios /></PrivateRoute>} />
           </Route>

@@ -3,6 +3,8 @@ import { useState, useContext } from "react";
 import EditModal from "./EditModal";
 import { AuthContext } from "../context/AuthContext";
 import api from "../api/axios";
+import ModalCitas from "./ModalCitas";
+import ModalClientes from "./ModalClientes";
 
 function DataTable({ columns, data, endpoint, onRefresh }) {
   const [showModal, setShowModal] = useState(false);
@@ -11,7 +13,6 @@ function DataTable({ columns, data, endpoint, onRefresh }) {
   const [filter, setFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10; // o 5
-
 
   const filteredData = data.filter((row) =>
     Object.values(row).some((val) =>
@@ -52,7 +53,7 @@ function DataTable({ columns, data, endpoint, onRefresh }) {
 
   return (
     <div style={{ width: "100%" }}>
-      {auth.role !== "ADMIN" || endpoint === "/admin/clientes" ? (
+      {auth.role !== "ADMIN" ? (
         <input type="hidden"></input>
       ) : (
         <button
@@ -156,13 +157,42 @@ function DataTable({ columns, data, endpoint, onRefresh }) {
           ))}
         </ul>
       </nav>
-      <EditModal
-        show={showModal}
-        onClose={handleClose}
-        row={selectedRow}
-        columns={columns}
-        endpoint={endpoint}
-      />
+      {(() => {
+        switch (endpoint) {
+          case "/admin/citas":
+            return (
+              <ModalCitas
+                data={data}
+                show={showModal}
+                onClose={handleClose}
+                row={selectedRow}
+                columns={columns}
+                endpoint={endpoint}
+              />
+            );
+          case "/admin/clientes":
+            return (
+              <ModalClientes
+                data={data}
+                show={showModal}
+                onClose={handleClose}
+                row={selectedRow}
+                columns={columns}
+                endpoint={endpoint}
+              />
+            );
+          default:
+            return(
+              <EditModal
+                show={showModal}
+                onClose={handleClose}
+                row={selectedRow}
+                columns={columns}
+                endpoint={endpoint}
+              />
+            );
+        }
+      })()}
     </div>
   );
 }

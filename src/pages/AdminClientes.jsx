@@ -33,6 +33,7 @@ function AdminClientes() {
     { header: "Direccion", accessor: "direccion" },
     { header: "Telefono", accessor: "telefono" },
     { header: "Email", accessor: "email" },
+    { header: "Veterinario", accessor: "nomVet" },
     { header: "Estado", accessor: "estado" },
     { header: "Acciones", accessor: "acciones" },
   ];
@@ -43,6 +44,7 @@ function AdminClientes() {
       <br/>
       <DataTable columns={columns} data={clientes} endpoint="/admin/clientes"  onRefresh={fetchClientes}/>
     </div>
+
   );
 }
 

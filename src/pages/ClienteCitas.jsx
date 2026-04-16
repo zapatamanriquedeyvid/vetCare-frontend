@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "../components/DataTable";
+import Citas_cliente from '../components/Citas_cliente'
 import api from "../api/axios";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 function ClienteCitas() {
-  const { auth ,setAuth} = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
   const [citas, setCitas] = useState([]);
 
   useEffect(() => {
@@ -17,6 +18,7 @@ function ClienteCitas() {
           },
         });
         setCitas(res.data);
+        console.log(res.data);
       } catch (err) {
         console.error("Error al obtener citas del cliente", err);
       }
@@ -24,20 +26,9 @@ function ClienteCitas() {
     fetchCitas();
   }, [auth]);
 
-  const columns = [
-    { header: "Fecha de Cita", accessor: "fechaCita" },
-    { header: "Hora de Cita", accessor: "horaCita" },
-    { header: "Estado", accessor: "estado" },
-    { header: "Motivo", accessor: "motivo" },
-    { header: "Veterinario", accessor: "nombreVeterinario" },
-    { header: "Mascota", accessor: "nombreMascota" },
-  ];
-
   return (
     <div className="container mt-4 tablas">
-      <h2>Lista de Mis Citas</h2>
-      <br/>
-      <DataTable columns={columns} data={citas} />
+      <Citas_cliente citas={citas}/>
     </div>
   );
 }

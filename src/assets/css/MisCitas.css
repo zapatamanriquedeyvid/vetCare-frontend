@@ -1,0 +1,55 @@
+.citas-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: auto;
+  box-sizing: border-box;
+  max-height: 620px;
+}
+
+.nav-link.inactive {
+  color: #6c757d;   /* gris */
+  background-color: #f8f9fa; /* fondo claro */
+}
+
+.cita-item {
+  width: 300px;
+  margin: 20px;
+  background-color: #fdfdfd;
+  border-left: 5px solid #dee2e6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cita-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.cita-item.border-pendiente {
+  border-left-color: rgba(255, 166, 0, 0.767);
+}
+
+.cita-item.border-atendida {
+  border-left-color: rgba(0, 128, 0, 0.747);
+}
+
+.cita-item.border-cancelada {
+  border-left-color: rgba(255, 0, 0, 0.685);
+}
+
+.estado-pendiente {
+  background-color: #ffc107;
+  color: #212529;
+}
+ 
+.estado-atendida {
+  background-color: #28a745;
+}
+
+.estado-cancelada {
+  background-color: #dc3545;
+}
+
+.estado-default {
+  background-color: #6c757d;
+}

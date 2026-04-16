@@ -30,7 +30,7 @@ function EditModalForm({ show, onClose, row, columns, endpoint }) {
     fechaNacimiento: (props) => (
       <InputFecha
         {...props}
-        accessor="fechaNacimiento"
+        accessor="fecha de Nacimiento"
         max={new Date().toISOString().split("T")[0]}
       />
     ),
@@ -177,7 +177,6 @@ function EditModalForm({ show, onClose, row, columns, endpoint }) {
         }else{
           allowedFields = ["idCliente","estado","fechaCita","horaCita","idMascota","idVeterinario","motivo"];
         }
-        
       } else if (endpoint.includes("mascotas")) {
         if(row){
           allowedFields = ["nombre","especie","raza","fechaNacimiento","pesoActual","sexo"];
@@ -187,7 +186,11 @@ function EditModalForm({ show, onClose, row, columns, endpoint }) {
       } else if (endpoint.includes("veterinarios")) {
         allowedFields = ["nombre","apellido","email","password","telefono","especialidad","estado"];
       } else if (endpoint.includes("clientes")) {
-        allowedFields = ["direccion","apellido","dni","email","nombre","telefono","estado"];
+        if(row){
+          allowedFields = ["direccion","apellido","dni","email","nombre","telefono","estado"];
+        }else{
+          allowedFields = ["direccion","apellido","dni","email","password","nombre","telefono","estado","idVeterinario"];
+        }
       } else {
         throw new Error("Endpoint no soportado");
       }

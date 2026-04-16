@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 function AdminCitas() {
-  const { auth ,setAuth} = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
   const [citas, setCitas] = useState([]);
 
   const fetchCitas = async () => {
@@ -20,14 +20,15 @@ function AdminCitas() {
       console.error("Error al obtener citas del admin", err);
     }
   };
+  
   useEffect(() => {
     fetchCitas();
   }, [auth]);
 
   const columns = [
     { header: "IdCita", accessor: "idCita" },
-    { header: "Nombre del Cliente", accessor: "nombreCliente" },
-    { header: "Veterinario", accessor: "nombreVeterinario" },
+    { header: "Nombre del Cliente", accessor: "nomCompCli" },
+    { header: "Veterinario", accessor: "nomCompVet" },
     { header: "Nombre de la Mascota", accessor: "nombreMascota" },
     { header: "Fecha de Cita", accessor: "fechaCita" },
     { header: "Hora de Cita", accessor: "horaCita" },
@@ -37,7 +38,7 @@ function AdminCitas() {
   ];
 
   return (
-    <div className="container mt-4 tablas">
+    <div className="w-100 mt-4 tablas">
       <h2>Lista de Citas</h2>
 
       <br/>
