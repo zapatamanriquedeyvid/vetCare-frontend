@@ -36,19 +36,41 @@ function ReporteDinamicoPDF() {
       });
 
       const datos = res.data;
-      const doc = new jsPDF();
+    let orientacion = "portrait"; // valor por defecto
+    if (tipoReporte === "CLIENTES" || tipoReporte === "VETERINARIOS") {
+      orientacion = "landscape"; // ejemplo: horizontales para tablas largas
+    }
+
+    const doc = new jsPDF({
+      unit: "mm",
+      format: "a4",
+      orientation: orientacion,
+    });
 
       doc.setFontSize(16);
-      doc.text("Reporte Dinámico", 14, 20);
+      doc.text("REPORTES VETERINARIA", 14, 20);
       doc.setFontSize(12);
       doc.text(`Tipo: ${tipoReporte}`, 14, 30);
       doc.text(`Filtro: ${filtro}`, 14, 37);
+      
 
       // Generar tabla con datos
       autoTable(doc, {
         head: [Object.keys(datos[0] || {})], // columnas dinámicas
         body: datos.map((d) => Object.values(d)),
         startY: 45,
+          columnStyles: {
+    0: { cellWidth: 'auto' } ,
+    1: { cellWidth: 'auto' } ,
+    2: { cellWidth: 'auto' } ,
+    3: { cellWidth: 'auto' } ,
+    4: { cellWidth: 'auto' } ,
+    5: { cellWidth: 'auto' } ,
+    6: { cellWidth: 'auto' } ,
+    7: { cellWidth: 'auto' } ,
+    8: { cellWidth: 'auto' } ,
+    9: { cellWidth: 'auto' } 
+  }
       });
 
       doc.save(`reporte_${tipoReporte}_${filtro}.pdf`);

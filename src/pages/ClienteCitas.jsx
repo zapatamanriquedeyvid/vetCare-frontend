@@ -18,7 +18,6 @@ function ClienteCitas() {
           },
         });
         setCitas(res.data);
-        console.log(res.data);
       } catch (err) {
         console.error("Error al obtener citas del cliente", err);
       }
@@ -28,7 +27,7 @@ function ClienteCitas() {
 
   return (
     <div className="container mt-4 tablas">
-      <Citas_cliente citas={citas}/>
+      <Citas_cliente citas={citas} auth={auth}/> 
     </div>
   );
 }

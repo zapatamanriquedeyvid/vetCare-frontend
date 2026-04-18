@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import "../assets/css/MisCitas.css"; // para estilos adicionales
-import pata from '../assets/svg/pata.svg'
+import pata from "../assets/svg/pata.svg";
 
 const formatFecha = (fechaISO) => {
   const fecha = new Date(fechaISO);
@@ -12,9 +12,16 @@ const formatFecha = (fechaISO) => {
   }).format(fecha);
 };
 
+//CITAS del veterinario:
+//idcita,nombreCliente,fechaCita,horaCita,estado,motivo,nombreMascota
 
-function Citas_cliente({ citas }) {
+//CITAS del cliente:
+//nombreVeterinario,fechaCita,horaCita,estado,motivo,nombreMascota
+
+function Citas_cliente({ citas, auth }) {
   const [filter, setFilter] = useState("TODAS");
+
+  const rol = auth.role;
 
   const filteredCitas =
     filter === "TODAS"
@@ -34,10 +41,9 @@ function Citas_cliente({ citas }) {
     }
   };
 
+
   return (
     <div className="container my-4">
-      <h2 className="mb-4">Mis Citas</h2>
-
       {/* Filtros */}
       <ul className="nav nav-tabs mb-4">
         {["TODAS", "PENDIENTE", "ATENDIDA", "CANCELADA"].map((estado) => (
@@ -55,20 +61,31 @@ function Citas_cliente({ citas }) {
       {/* Lista de citas */}
       <div className="citas-list">
         {filteredCitas.map((cita, index) => (
-          <div className={`cita-item  p-3 mb-3 rounded border-${cita.estado.toLowerCase()}`} key={index}>
+          <div
+            className={`cita-item  p-3 mb-3 rounded border-${cita.estado.toLowerCase()}`}
+            key={index}
+          >
             <div className="d-flex justify-content-between align-items-center mb-2">
               <div className="d-flex ">
-              <img src={pata}/>
-              <h2 className="mx-2 my-0">{cita.nombreMascota}</h2>
+                <img src={pata} />
+                <h2 className="mx-2 my-0">{cita.nombreMascota}</h2>
               </div>
               <span className={`badge ${getEstadoClass(cita.estado)}`}>
                 {cita.estado}
               </span>
             </div>
-            <p className="mb-1"><b>Motivo: </b> {cita.motivo}</p>
-            <p className="mb-1">📅 {formatFecha(cita.fechaCita)}</p>
-            <p className="mb-1">🕒 {cita.horaCita}</p>
-            <p className="mb-0">👩‍⚕️ {cita.nombreVeterinario}</p>
+            <p className="mb-1">
+              <b>Motivo: </b> {cita.motivo}
+            </p>
+            {rol === "CLIENTE" ? 
+              <p className="mb-0"><b>👩‍⚕️ Veterinario:</b> {cita.nombreVeterinario}</p>
+            : 
+              <>
+                <p className="mb-0"><b>🙍‍♂️ Dueño:</b> {cita.nombreCliente} </p>
+              </>
+            }
+            <p className="mb-1"><b>📅 Fecha:</b> {formatFecha(cita.fechaCita)}</p>
+            <p className="mb-1"><b>🕒 Hora:</b> {cita.horaCita}</p>
           </div>
         ))}
         {filteredCitas.length === 0 && (

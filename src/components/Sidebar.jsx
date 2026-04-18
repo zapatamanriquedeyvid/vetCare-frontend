@@ -17,6 +17,7 @@ const menuConfig = {
   VETERINARIO: [
     { label: "Perfil", path: "/api/veterinario/perfil" },
     { label: "Citas", path: "/api/veterinario/citas" },
+    { label: "Clientes", path: "/api/veterinario/Clientes" },
   ],
   CLIENTE: [
     { label: "Perfil", path: "/api/cliente/perfil" },

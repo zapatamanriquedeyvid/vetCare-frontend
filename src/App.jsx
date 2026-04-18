@@ -10,6 +10,8 @@ import AdminMascotas from './pages/AdminMascotas';
 import AdminCitas from './pages/AdminCitas';
 import AdminVeterinarios from './pages/AdminVeterinarios';
 import VeterinarioCitas from './pages/VeterinarioCitas';
+import VeterinarioClientes from './pages/VeterinarioClientes';
+import VeterinarioMascotas from './pages/VeterinarioMascotas';
 import Dashboard from './pages/Dashboard';
 import Layout from "./pages/Layout";
 import Index from "./pages/Index";
@@ -47,6 +49,8 @@ function App() {
           <Route path="/api/veterinario" element={<Layout />}>
             <Route path="perfil" element={<Perfil />} />
             <Route path="citas" element={<PrivateRoute allowedRoles={["VETERINARIO"]}><VeterinarioCitas /></PrivateRoute>} />
+            <Route path="Clientes" element={<PrivateRoute allowedRoles={["VETERINARIO"]}><VeterinarioClientes /></PrivateRoute>} />
+            <Route path="mascotas/:idCliente" element={<VeterinarioMascotas />} />
           </Route>
         </Routes>
       </AuthProvider>
