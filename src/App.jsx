@@ -29,7 +29,7 @@ function App() {
 
           {/* consultas cliente*/}
           <Route path="/api/cliente" element={<Layout />}>
-            <Route path="perfil" element={<Perfil />} />
+            <Route path="perfil" element={<PrivateRoute allowedRoles={["CLIENTE"]}><Perfil /></PrivateRoute>} />
             <Route path="mascotas" element={<PrivateRoute allowedRoles={["CLIENTE"]}><ClienteMascotas /></PrivateRoute>} />
             <Route path="mascota/:idMascota" element={<PerfilMascota />} />
             <Route path="citas" element={<PrivateRoute allowedRoles={["CLIENTE"]}><ClienteCitas /></PrivateRoute>} />
@@ -47,7 +47,7 @@ function App() {
 
           {/*consultas veterinario */}
           <Route path="/api/veterinario" element={<Layout />}>
-            <Route path="perfil" element={<Perfil />} />
+            <Route path="perfil" element={<PrivateRoute allowedRoles={["VETERINARIO"]}><Perfil /></PrivateRoute>} />
             <Route path="citas" element={<PrivateRoute allowedRoles={["VETERINARIO"]}><VeterinarioCitas /></PrivateRoute>} />
             <Route path="Clientes" element={<PrivateRoute allowedRoles={["VETERINARIO"]}><VeterinarioClientes /></PrivateRoute>} />
             <Route path="mascotas/:idCliente" element={<VeterinarioMascotas />} />

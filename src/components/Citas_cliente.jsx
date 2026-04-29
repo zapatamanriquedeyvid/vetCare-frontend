@@ -24,9 +24,9 @@ function Citas_cliente({ citas, auth }) {
   const rol = auth.role;
 
   const filteredCitas =
-    filter === "TODAS"
-      ? citas
-      : citas.filter((cita) => cita.estado.toUpperCase() === filter);
+    (filter === "TODAS" ? citas : citas.filter((cita) => cita.estado.toUpperCase() === filter))
+      .slice()
+      .sort((a, b) => Number(b.idcita) - Number(a.idcita));
 
   const getEstadoClass = (estado) => {
     switch (estado.toUpperCase()) {
@@ -62,8 +62,8 @@ function Citas_cliente({ citas, auth }) {
       <div className="citas-list">
         {filteredCitas.map((cita, index) => (
           <div
-            className={`cita-item  p-3 mb-3 rounded border-${cita.estado.toLowerCase()}`}
-            key={index}
+          className={`cita-item  p-3 mb-3 rounded border-${cita.estado.toLowerCase()}`}
+          key={index}
           >
             <div className="d-flex justify-content-between align-items-center mb-2">
               <div className="d-flex ">

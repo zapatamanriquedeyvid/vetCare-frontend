@@ -24,7 +24,6 @@ body {
 .encabezado-tabla {
   background-color: #0d6efd; /* azul Bootstrap */
   color: white;
-  
 }
 .tablas{
   background: #ffffff;
@@ -39,7 +38,6 @@ body {
   font-size: larger;
   margin-bottom: 5px;
   font-weight: bold;
-
 }
 
 .nav-link:hover {

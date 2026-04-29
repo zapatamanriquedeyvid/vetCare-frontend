@@ -50,13 +50,13 @@ export default function VeterinarioClientes(){
       {Clientes.map((cliente,index)=>(
         <div style={cardStyle} key={index}>
           {/* //perfil */}
-          <div style={{display:'flex',gap:'20px',alignItems:'center'}}>
+          <div className="" style={{display:'flex',gap:'20px',alignItems:'center'}}>
               <img
                 src={`https://ui-avatars.com/api/?name=${cliente.nombre}&background=random`}
                 alt={cliente.nombre}
                 className="img-mascota"
               />
-            <div style={{ height:'100%'}}>
+            <div style={{ height:'100px'}}>
               <h3 className="m-0">{cliente.nombre}</h3>
               <p className="m-0"> DNI: {cliente.dni}</p>
             </div>

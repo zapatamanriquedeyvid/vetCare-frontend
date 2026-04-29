@@ -18,6 +18,8 @@ function ClienteCitas() {
           },
         });
         setCitas(res.data);
+        console.log(res.data);
+        
       } catch (err) {
         console.error("Error al obtener citas del cliente", err);
       }
